@@ -17,7 +17,7 @@ Contents
 
 TODO
 ----
-[] More Data, always. 
-[] Experiment with LTSM & other DL classification techniques. 
-[] Improve data structure (currently uses a dir of txt files. no bueno.)
-[] Improve Code structure- DRY stuff. 
+-[] More Data, always. 
+-[] Experiment with LTSM & other DL classification techniques. 
+-[] Improve data structure (currently uses a dir of txt files. no bueno.)
+-[] Improve Code structure- DRY stuff. 
