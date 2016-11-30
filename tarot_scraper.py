@@ -2,6 +2,7 @@ import urllib2
 from bs4 import BeautifulSoup as bs4
 
 #Because there are no "standard" card sets
+data_dir = "data"
 
 rw_cards = [
 		"fool", "magician", "high priestess", "empress", "emperor", "hierophant","lovers",
@@ -75,7 +76,7 @@ def make_db():
 	for card in range(0,22):
 		name = rw_cards[card]
 		print("Fetching descriptions for {0} ------------------".format(name))
-		output_file = open("{0}.txt".format(name.replace(" ","_")),"w")
+		output_file = open("{}{}.txt".format(data_dir, name.replace(" ","_")),"w")
 		for source in range(len(url_schemas)):
 			link = all_links[source][card]
 			print "		{0}".format(link)
@@ -87,8 +88,8 @@ def make_db():
 
 def clean_db():
 	print("Cleaning db")
-	all_files_original = [open("{0}.txt".format(name.replace(" ","_")),"r").readlines() for name in rw_cards]
-	new_files = [open("{0}_clean.txt".format(name.replace(" ","_")),"w") for name in rw_cards]
+	all_files_original = [open("{}/{}.txt".format(data_dir, name.replace(" ","_")),"r").readlines() for name in rw_cards]
+	new_files = [open("{}/{}_clean.txt".format(data_dir, name.replace(" ","_")),"w") for name in rw_cards]
 	for f in all_files_original:
 		other = list(all_files_original)
 		other.remove(f)

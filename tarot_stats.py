@@ -1,13 +1,14 @@
 #Tarot NLP Basic stats 
 #req python3
 import nltk
+data_dir = "data"
 
 rw_cards = [
 		"fool", "magician", "high priestess", "empress", "emperor", "hierophant","lovers",
 		"chariot", "strength","hermit", "wheel of fortune", "justice", "hanged man", "death", 
 		"temperance", "devil", "tower", "star", "moon", "sun", "judgement", "world"]
 
-all_files = ["".join(open("{0}_clean.txt".format(name.replace(" ","_")),"r").readlines()) for name in rw_cards]
+all_files = ["".join(open("{}/{}_clean.txt".format(data_dir, name.replace(" ","_")),"r").readlines()) for name in rw_cards]
 
 all_files_concat = "".join(all_files)
 master_vocab = sorted(

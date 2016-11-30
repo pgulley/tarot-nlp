@@ -1,8 +1,9 @@
 #classify tarot w/naive bayes. 
 #pgulley
-
 import nltk
 import random
+
+data_dir = "data"
 
 rw_cards = [
 		"fool", "magician", "high priestess", "empress", "emperor", "hierophant","lovers",
@@ -22,7 +23,7 @@ def extract_features(post):
 def process_files():
 	all_lines = []
 	for card in rw_cards:
-		o_ = open("{0}_clean.txt".format(card.replace(" ","_")))
+		o_ = open("{}/{}_clean.txt".format(data_dir, card.replace(" ","_")))
 		lines = o_.readlines()
 		o_.close()
 		for line in lines:
